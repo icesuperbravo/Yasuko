@@ -1204,11 +1204,10 @@ a.btn-post-excerpt {
   position: relative; }
 
 .nav-header-container {
-  position: relative;
-  height: 2rem;
-  width: 74%;
-  max-width: 76.8rem;
-  margin: 0 auto; }
+  position:relative;
+  width:90%;
+  height:80px;
+  margin:0 auto; }
 
 .header-wrap {
   width: 100%; }
@@ -1249,9 +1248,8 @@ a.btn-post-excerpt {
     background: rgba(0, 0, 0, 0.1); }
 
 .svg-logo {
-  left: 0;
-  position: absolute;
-  top: 2rem; }
+  padding: auto;
+}
 
 #svg-luolei {
   fill: #333; }
@@ -2122,7 +2120,8 @@ Copyright (c) 2014 Daniel Eden
     height: 1.8rem;
     line-height: 1.8rem; }
   .nav-header-container {
-    width: 80%; }
+    width: 90%;
+  }
   .read-next {
     margin: 5rem auto 2rem; }
   .read-next-story .post {
@@ -2137,7 +2136,7 @@ Copyright (c) 2014 Daniel Eden
     width: 100%;
     margin: 2rem auto; }
   .nav-header-container {
-    width: 80%; }
+    width: 90%; }
   .back-home {
     top: .5rem;
     left: 0; } }

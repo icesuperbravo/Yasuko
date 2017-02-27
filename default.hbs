@@ -6,11 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     {{! Page Meta }}
     <title>{{meta_title}}</title>
-    <link rel="shortcut icon" href="{{asset "images/favicon.png"}}">
-    <link href="{{asset "images/apple-touch-icon.png"}}" rel="apple-touch-icon" />
-    <link href="{{asset "images/apple-touch-icon-76x76.png"}}" rel="apple-touch-icon" sizes="76x76" />
-    <link href="{{asset "images/apple-touch-icon-120x120.png"}}" rel="apple-touch-icon" sizes="120x120" />
-    <link href="{{asset "images/apple-touch-icon-152x152.png"}}" rel="apple-touch-icon" sizes="152x152" />
+    <link rel="shortcut icon" href="{{asset "images/Logo.png"}}">
     <meta name="description" content="{{meta_description}}" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
@@ -33,12 +29,12 @@
 {{! Everything else gets inserted here }}
 {{{body}}}
     <footer class="site-footer clearfix ">
-        <section class="copyright "><a href="{{@blog.url}} ">{{@blog.title}}</a> &copy; {{date format="YYYY "}}</section>
+        <section class="copyright "><a href="{{@blog.url}}   ">{{@blog.title}} Digital Co.Ltd </a> &copy; {{date format="YYYY "}}</section>
         <section>
-        <a href="https://github.com/foru17/Yasuko">Theme Yasuko  </a> <a href="https://github.com/foru17/Yasuko" class="github-repo"><span class="gadget-github"></span>Star</a> Designed by <a href="https://luolei.org ">@罗磊</a>
+        <a href="https://www.teamartizan.com">teamartizan官方主页  </a>
         </section>
-            <section class="poweredby ">Powered by  <a href="https://ghost.org ">Ghost</a></section>
-            <section><a href="http://www.miitbeian.gov.cn/">粤ICP备14004235号</a></section>
+        <section class="poweredby ">Powered by  <a href="https://ghost.org ">Ghost</a></section>
+
     </footer>
     {{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
     <script type="text/javascript" src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
