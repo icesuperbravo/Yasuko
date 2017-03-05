@@ -9,7 +9,7 @@
     <img src="{{!image}}!wechatsmall" class="wechat-only">
             <header id="header" class="home-header blog-background banner-mask lazy {{#if
             image}}" style="background-image:url({{image}}){{else}}"
-                    style="background-image:url({{@blog.cover}})"{{/if}}">
+                    style="background-image:url({{@blog.cover}})" {{/if}} >
     <div class="nav-header">
         <div class="nav-header-container">
             <a href="{{@blog.url}}" class="back-home">回到博客主页</a>
@@ -103,34 +103,45 @@
         </article>
 
         <section class="share">
-            <div class="share-icons" id="share-icons">
-                <a class="icon-share" href="http://weibo.com/foru17/">
-                    <span class=""><i class="iconfont iconfont-weibo">&#xe607;</i></span>
-                </a>
+            <!--<div class="social-share" id="share-icons">-->
+                <!--<a class="icon-share" href="http://weibo.com/foru17/">-->
+                    <!--<span class=""><i class="iconfont iconfont-weibo">&#xe607;</i></span>-->
+                <!--</a>-->
 
-                <a class="icon-share"
-                   href="https://twitter.com/intent/tweet?text={{title}}&url=&via=TeamArtizan">
-                    <span class=""><i class="iconfont iconfont-twitter">&#xe604;</i></span>
-                </a>
-                <a class="icon-share"
-                   href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost.com&amp;src=sdkpreparse"
-                   data-href={{url absolute="true"}}
-                >
-                    <span class=""><i class="iconfont  iconfont-facebook">&#xe601;</i></span>
-                </a>
+                <!--<a class="icon-share"-->
+                   <!--href="https://twitter.com/intent/tweet?text={{!title}}&url={{!url absolute='true'}}&via=TeamArtizan">-->
+                    <!--<span class=""><i class="iconfont iconfont-twitter">&#xe604;</i></span>-->
+                <!--</a>-->
+                <!--<a class="icon-share" id="facebook-button" href="#">-->
+                    <!--<span class=""><i class="iconfont  iconfont-facebook">&#xe601;</i></span>-->
+                <!--</a>-->
 
-                <a class="icon-share icon-github" href="https://github.com/foru17">
-                    <span class=""><i class="iconfont  iconfont-github">&#xe60d;</i></span>
-                </a>
-                <a class="icon-share icon-weibo" href="https://www.zhihu.com/people/luolei">
-                    <span class=""><i class="iconfont  iconfont-zhihu">&#xe609;</i></span>
-                </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-                   onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                    <span class="hidden">Facebook</span>
-                </a>
+                <!--<a class="icon-share icon-github" href="https://github.com/foru17">-->
+                    <!--<span class=""><i class="iconfont  iconfont-github">&#xe60d;</i></span>-->
+                <!--</a>-->
+                <!--<a class="icon-share icon-weibo" href="https://www.zhihu.com/people/luolei">-->
+                    <!--<span class=""><i class="iconfont  iconfont-zhihu">&#xe609;</i></span>-->
+                <!--</a>-->
+            <!--</div>-->
+
+
+
+            <div class="social-share"
+                 data-douban-url= '{{url absolute='true'}}'
+                 data-twitter-url ='{{url absolute='true'}}'
+                 data-disabled="google, tencent, diandian, qq"
+                 data-wechat-qrcode-title="微信扫一扫"
+                 data-wechatQrcodeHelper = '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>'
+                 data-image = '{{image}}'
+                 data-source = '{{url absolute='true'}}'
+                 data-description = 'TeamArtizan -- All-in-One Digital Solution for modern recruitment'
+
+            >
+
             </div>
+
         </section>
+
         <aside class="read-next">
             {{#next_post}}
                 <a class="read-next-story {{#if image}} lazy"
@@ -151,35 +162,34 @@
                 </a>
             {{/prev_post}}
         </aside>
+
         <section class="comment-area yasuko-only">
+            <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+            <script type="text/javascript">
+                var duoshuoQuery = {short_name:"blogteamartizan"};
+                (function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';ds.async = true;
+                    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0]
+                    || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    console.log(ds);
+                })();
+            </script>
+            <!-- 多说公共JS代码 end -->
+            <!-- 多说评论框 start -->
+            <div class="ds-thread" data-thread-key="{{slug}}" data-title="{{title}}" data-url="{{url absolute='true'}}"></div>
+            <!-- 多说评论框 end -->
+
 
         </section>
+
     </main>
     <script type="text/javascript" src="{{asset "js/prism.js"}}"></script>
-    <script>window.twttr = (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0],
-                t = window.twttr || {};
-        if (d.getElementById(id)) return t;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js, fjs);
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/jquery.share.min.js" integrity="sha256-nCwJPo/BlMrOEv6xcPNpC3yFUEztrqxIBSPR5Yq/puY=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css" integrity="sha256-0EDwznjUTDEicOuZhOL03fpflUqzhkByvhwol8YGkp4=" crossorigin="anonymous" />
 
-        t._e = [];
-        t.ready = function (f) {
-            t._e.push(f);
-        };
 
-        return t;
-    }(document, "script", "twitter-wjs"));</script>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/zh_CN/sdk.js#xfbml=1&version=v2.8&appId=1874746842814154";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-    
 {{/post}}

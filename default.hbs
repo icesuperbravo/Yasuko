@@ -14,6 +14,13 @@
     {{! Styles'n'Scripts }}
     <link rel="stylesheet" type="text/css" href="{{asset "css/all.min.css"}}" />
     {{! Ghost outputs important style and meta data with this tag }}
+
+    <title>Your Website Title</title>
+    <!-- You can use Open Graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+    <meta property="og:url"           content="{{url absolute="true"}}" />
+
+
     {{ghost_head}}
     <script>
     var _hmt = _hmt || [];
@@ -36,8 +43,9 @@
         <section class="poweredby ">Powered by  <a href="https://ghost.org ">Ghost</a></section>
 
     </footer>
-    {{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
-    <script type="text/javascript" src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+{{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
+<script type="text/javascript" src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+
     {{! Ghost outputs important scripts and data with this tag }}
     {{ghost_foot}}
     <script type="text/javascript" src="{{asset "js/all.min.js"}}"></script>

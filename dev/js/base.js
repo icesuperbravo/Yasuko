@@ -57,13 +57,12 @@ function loadJS(url, callback, el) {
  * 多说评论调用等
  */
 
-var duoshuoQuery = {
-    short_name: "luolei"
-};
+var duoshuoQuery = {short_name:"blogteamartizan"};
 
 var GlobalConfigue = {
-    duoshuoDomain: 'https://luolei.org',
-}
+    duoshuoDomain: 'http://blog.teamartizan.com'
+   }
+
 
 
 var General = {
@@ -187,8 +186,11 @@ var General = {
             'github': iconFontTag + '-github',
             'douban': iconFontTag + '-douban',
             'google': iconFontTag + '-google',
-            'luolei': iconFontTag + '-luolei',
+            // 'luolei': iconFontTag + '-luolei',
             'dribble': iconFontTag + '-dribble',
+
+
+
             'v2ex': iconFontTag + '-v2ex',
             'zhihu': iconFontTag + '-zhihu',
             'wikipedia': iconFontTag + '-wikipedia',
@@ -273,11 +275,14 @@ var General = {
 
 
     },
+
+
     commentLoader: function() {
         if (!$('body').hasClass('post-template')) {
             return false;
         }
         var dataThreadKey = GlobalConfigue.duoshuoDomain + location.pathname;
+        console.log(dataThreadKey);
         $(window).scroll(function() {
             if ($('.comment-area').has('div').length > 0) {
                 return false
@@ -290,6 +295,7 @@ var General = {
                         el.setAttribute('data-thread-key', dataThreadKey);
                         el.setAttribute('data-url', location.href);
                         el.setAttribute('data-title', $('title').html());
+                        console.log("div element add");
                         DUOSHUO.EmbedThread(el);
                         scrollStop = true;
                         setTimeout(function() {

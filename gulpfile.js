@@ -6,7 +6,6 @@
 var gulp = require('gulp');
 
 //引入功能组件
-
 var compass = require('gulp-compass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
