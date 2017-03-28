@@ -1,12 +1,12 @@
 {{!< default}}
 
 <header id="header"
-        class="home-header blog-background banner-mask lazy {{#if
-        @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}">
+        class="home-header blog-background banner-mask lazy" {{#if
+        @blog.cover}} style="background-image: url({{@blog.cover}})"{{else}}no-cover{{/if}}>
     <div class="nav-header-container">
         <a href="{{@blog.url}}" class="svg-logo">
             <span class="svg-logo">
-                <img src="./assets/images/Logo.png" alt="product logo" height="60" width="60"></img>
+                <img src="./assets/images/Logo.png" alt="product logo" height="60" width="60" />
             </span>
         </a>
     </div>

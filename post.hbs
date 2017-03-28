@@ -6,32 +6,32 @@
 {{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
 
-    <img src="{{!image}}!wechatsmall" class="wechat-only">
-            <header id="header" class="home-header blog-background banner-mask lazy {{#if
-            image}}" style="background-image:url({{image}}){{else}}"
-                    style="background-image:url({{@blog.cover}})" {{/if}} >
-    <div class="nav-header">
-        <div class="nav-header-container">
-            <a href="{{@blog.url}}" class="back-home">回到博客主页</a>
-        </div>
+    <!--<img src="{{!image}}!wechatsmall" class="wechat-only">-->
+    <header id="header" class="home-header blog-background banner-mask lazy "{{#if
+            image}} style="background-image:url({{image}})"{{else}}
+            style="background-image:url({{@blog.cover}})"{{/if}} >
+        <div class="nav-header">
+            <div class="nav-header-container">
+                <a href="{{@blog.url}}" class="back-home">回到博客主页</a>
+            </div>
 
-    </div>
-    <div class="header-wrap">
-        <div class="post-info-container">
-            <h2 class="post-page-title ">
-                {{title}}
-            </h2>
-            <time class="post-page-time">{{date format="DD MMMM YYYY"}}</time>
-            <span class="post-page-author">{{#author}}{{name}}{{/author}}</span>
-            <span class="post-page-tags">
-                {{tags prefix="" separator=" "}}
-            </span>
         </div>
+        <div class="header-wrap">
+            <div class="post-info-container">
+                <h2 class="post-page-title ">
+                    {{title}}
+                </h2>
+                <time class="post-page-time">{{date format="DD MMMM YYYY"}}</time>
+                <span class="post-page-author">{{#author}}{{name}}{{/author}}</span>
+                <span class="post-page-tags">
+                    {{tags prefix="" separator=" "}}
+                </span>
+            </div>
 
-    </div>
-    <div class="arrow_down">
-        <a href="javascript:;"></a>
-    </div>
+        </div>
+        <div class="arrow_down">
+            <a href="javascript:;"></a>
+        </div>
     </header>
 
 
@@ -104,14 +104,14 @@
 
         <section class="share">
             <div class="social-share"
-                 data-douban-url= '{{url absolute='true'}}'
-                 data-twitter-url ='{{url absolute='true'}}'
+                 data-douban-url='{{url absolute='true'}}'
+                 data-twitter-url='{{url absolute='true'}}'
                  data-disabled="google, tencent, diandian, qq"
                  data-wechat-qrcode-title="微信扫一扫"
-                 data-wechatQrcodeHelper = '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>'
-                 data-image = '{{image}}'
-                 data-source = '{{url absolute='true'}}'
-                 data-description = 'TeamArtizan -- All-in-One Digital Solution for modern recruitment'
+                 data-wechatQrcodeHelper='<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>'
+                 data-image='{{image}}'
+                 data-source='{{url absolute='true'}}'
+                 data-description='TeamArtizan -- All-in-One Digital Solution for modern recruitment'
 
             >
 
@@ -143,10 +143,11 @@
         <section class="comment-area yasuko-only">
             <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
             <script type="text/javascript">
-                var duoshuoQuery = {short_name:"blogteamartizan"};
-                (function() {
+                var duoshuoQuery = {short_name: "blogteamartizan"};
+                (function () {
                     var ds = document.createElement('script');
-                    ds.type = 'text/javascript';ds.async = true;
+                    ds.type = 'text/javascript';
+                    ds.async = true;
                     ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
                     ds.charset = 'UTF-8';
                     (document.getElementsByTagName('head')[0]
@@ -156,17 +157,14 @@
             </script>
             <!-- 多说公共JS代码 end -->
             <!-- 多说评论框 start -->
-            <div class="ds-thread" data-thread-key="{{slug}}" data-title="{{title}}" data-url="{{url absolute='true'}}"></div>
+            <div class="ds-thread" data-thread-key="{{slug}}" data-title="{{title}}"
+                 data-url="{{url absolute='true'}}"></div>
             <!-- 多说评论框 end -->
-
 
         </section>
 
     </main>
-    <script type="text/javascript" src="{{asset "js/prism.js"}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/jquery.share.min.js" integrity="sha256-nCwJPo/BlMrOEv6xcPNpC3yFUEztrqxIBSPR5Yq/puY=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" integrity="sha256-fGPu+icKh985TLPhO2v68U7i0CW0dE4kiR06RN4O6jo=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css" integrity="sha256-0EDwznjUTDEicOuZhOL03fpflUqzhkByvhwol8YGkp4=" crossorigin="anonymous" />
+
 
 
 {{/post}}
