@@ -36,13 +36,13 @@ function loadJS(url, callback, el) {
                     callback();
                 }
             }
-        }
+        };
     } else {
         script.onload = function() {
             if (callback) {
                 callback();
             }
-        }
+        };
     }
     script.src = url;
     if (el) {
@@ -50,7 +50,7 @@ function loadJS(url, callback, el) {
     } else {
         head.insertBefore(script, head.firstChild);
     }
-};
+}
 
 /**
  * Yasuko 配置文件
@@ -61,7 +61,7 @@ var duoshuoQuery = {short_name:"blogteamartizan"};
 
 var GlobalConfigue = {
     duoshuoDomain: 'http://blog.teamartizan.com'
-   }
+   };
 
 
 
@@ -73,12 +73,12 @@ var General = {
     init: function() {
         var win = window;
         var doc = win.document;
-        var UA = navigator.userAgent.toLowerCase()
+        var UA = navigator.userAgent.toLowerCase();
         var isAndroid = win.navigator.appVersion.match(/android/gi);
         var isIPhone = win.navigator.appVersion.match(/iphone/gi);
         if (UA.match(/MicroMessenger/i) == "micromessenger") {
             General.isWechat = true;
-            $('body').addClass('wechat-webview')
+            $('body').addClass('wechat-webview');
         }
         if (!!isAndroid) {
             General.isMobile = true;
@@ -120,7 +120,7 @@ var General = {
     webFontLoader: function() {
         WebFontConfig = {
             loading: function() {
-                console.log('loading font')
+                console.log('loading font');
             },
             custom: {
                 families: ['Exo', 'iconfont'],
@@ -134,7 +134,7 @@ var General = {
                     families: ['Exo', 'iconfont']
                 }
             });
-        })
+        });
 
 
 
@@ -148,7 +148,7 @@ var General = {
                 window.location.hash = '#';
             });
             return false;
-        })
+        });
     },
     //平滑滚动到顶部
     scrollToPos: function(position) {
@@ -171,7 +171,7 @@ var General = {
                 window.location.hash = '#';
             });
             console.log('我跳');
-        })
+        });
     },
     /*给文章中的url添加iconfont方便识别*/
     urlIconlize: function(url) {
@@ -198,7 +198,7 @@ var General = {
             'youku': iconFontTag + '-youku',
             'youtube': iconFontTag + '-youtube'
 
-        }
+        };
 
         for (var name in iconMap) {
             if (typeof iconMap[name] !== 'function') {
@@ -242,7 +242,7 @@ var General = {
         var loadQR = {
             alipay: '/assets/images/qr-alipay-256.png',
             wechat: '/assets/images/qr-wechat-256.png'
-        }
+        };
         var loadQRUrl;
         if (!!General.isWechat) {
             $('.wechat-code b').html('长按上方二维码打赏作者');
@@ -250,7 +250,7 @@ var General = {
         }
 
         $('.money-like .reward-button').hover(function() {
-            console.log('悬浮')
+            console.log('悬浮');
             $('img.wechat-img').attr('src', loadQR.wechat);
             $('img.alipay-img').attr('src', loadQR.alipay);
             $('.money-code').fadeIn();
@@ -258,7 +258,7 @@ var General = {
         }, function() {
             $('.money-code').fadeOut();
             $(this).removeClass('active');
-        }, 800)
+        }, 800);
 
         $('.money-like .reward-button').click(function() {
             if ($(this).hasClass('active')) {
@@ -271,7 +271,7 @@ var General = {
                 $('.money-code').fadeIn();
                 $(this).addClass('active');
             }
-        })
+        });
 
 
     },
@@ -285,10 +285,10 @@ var General = {
         console.log(dataThreadKey);
         $(window).scroll(function() {
             if ($('.comment-area').has('div').length > 0) {
-                return false
+                return false;
             } else {
                 console.log('增加评论');
-                if (($('.author-image').isOnScreenVisible() || $('.read-next').isOnScreenVisible()) && $('.author-image').hasClass('duoshuo-loaded') == false) {
+                if (($('.author-image').isOnScreenVisible() || $('.read-next').isOnScreenVisible()) && $('.author-image').hasClass('duoshuo-loaded') === false) {
                     $('.author-image').addClass('duoshuo-loaded');
                     loadJS(General.absUrl + '/assets/js/duoshuo.modify.js', function() {
                         var el = document.createElement('div');
@@ -300,15 +300,15 @@ var General = {
                         scrollStop = true;
                         setTimeout(function() {
                             $('.comment-area').append(el);
-                        }, 250)
+                        }, 250);
 
-                    })
+                    });
                 }
             }
 
         });
     }
-}
+};
 
 
 
@@ -339,7 +339,7 @@ var ImageSmartLoader = {
             ImageSmartLoader.isWebPSupported = false;
             ImageSmartLoader.webPLoader();
         };
-        img.src = "data:image/webp;base64," + TestImages['demo'];
+        img.src = "data:image/webp;base64," + TestImages.demo;
 
     },
     imgLoader: function() {
@@ -348,7 +348,7 @@ var ImageSmartLoader = {
     webPLoader: function() {
         console.log('加载webP');
         // alert(ImageSmartLoader.isWebPSupported);
-        if (ImageSmartLoader.isWebPSupported == true) {
+        if (ImageSmartLoader.isWebPSupported === true) {
             console.log('宽度是' + General.viewWidth);
             if (General.viewWidth == 768) {
                 $(".lazy").lazyload({
@@ -410,7 +410,7 @@ var ImageSmartLoader = {
     },
 
 
-}
+};
 
 
 
@@ -512,18 +512,21 @@ $(document).ready(function() {
                         var elements_left = elements.length;
                         settings.appear.call(self, elements_left, settings);
                     }
+
                     var updatedUrl = $self.attr("data-" + settings.data_attribute);
-                    // console.log('图片地址' +updatedUrl.indexOf('upaiyun'));
-                    // console.log('CDN地址' +updatedUrl.indexOf('file.is26.com'));
-                    if (updatedUrl.indexOf('upaiyun') > -1 || updatedUrl.indexOf('file.is26.com') > -1) {
+                    var str = String(updatedUrl);
+                    console.log(str);
+                    //console.log('图片地址' +updatedUrl.indexOf('upaiyun'));
+                    //console.log('CDN地址' +updatedUrl.indexOf('file.is26.com'));
+                    if (str.indexOf('upaiyun') > -1 || str.indexOf('file.is26.com') > -1) {
                         // alert(1)
-                        if (settings.advanced_load == true) {
+                        if (settings.advanced_load === true) {
                             updatedUrl += '!';
                         }
-                        if (settings.is_scale == true) {
+                        if (settings.is_scale === true) {
                             updatedUrl += '/fw/' + settings.scale_width;
                         }
-                        if (settings.webP_load == true) {
+                        if (settings.webP_load === true) {
                             updatedUrl += '/format/webp';
                         }
                     }
@@ -708,4 +711,4 @@ $(document).ready(function() {
 
     }
 
-})
+});

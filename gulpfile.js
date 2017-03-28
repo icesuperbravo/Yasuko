@@ -18,7 +18,7 @@ var sourcemaps = require('gulp-sourcemaps');
 
 
 var autoprefixer = require('gulp-autoprefixer');
-var minifycss = require('gulp-minify-css');
+var minifycss = require('gulp-clean-css');
 var rename = require('gulp-rename');
 
 // 图像处理
@@ -241,3 +241,4 @@ gulp.task('ftp', function() {
 gulp.task('sprite', ['retinasprite', 'standardsprite', 'sprite2assets']);
 gulp.task('default', ['watch', 'scripts']);
 gulp.task('watch:base', ['watch']);
+
